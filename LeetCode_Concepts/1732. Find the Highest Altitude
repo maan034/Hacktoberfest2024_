@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int largestAltitude(vector<int>& gain) {
+    int prefixSum[gain.size()];
+    int ans=max(0,gain[0]);
+    prefixSum[0]=gain[0];
+
+    for(int i=1;i<gain.size();i++)
+    {
+        prefixSum[i]=prefixSum[i-1]+gain[i];
+        cout<<prefixSum[i]<<" ";
+        ans=max(prefixSum[i],ans);
+    }
+    return ans;
+    }
+};
